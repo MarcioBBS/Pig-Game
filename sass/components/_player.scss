@@ -1,5 +1,28 @@
 .player {
-    background-color: orangered;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-content: center;
+
+    &__panel {
+        text-align: center;
+
+        img {
+            width: 4rem;
+            height: auto;
+        }
+
+        &-1 {            
+            height: 95vh;
+            background-color: darkgray;
+            
+            @include grid-side-panel;
+        }
+
+        &-2 {
+            height: 95vh;            
+
+            @include grid-side-panel;
+        }
+    }
 }
