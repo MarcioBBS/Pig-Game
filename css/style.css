@@ -10,3 +10,19 @@ html {
 
 body {
   box-sizing: border-box; }
+
+.player {
+  background-color: orangered;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); }
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  height: 100vh;
+  background-color: orangered;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); }
