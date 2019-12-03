@@ -1,10 +1,5 @@
-.container {
-    @include center(absolute);
-    width: 100rem;
-    height: 100vh;
+.player {
     background-color: orangered;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    
-   
 }
