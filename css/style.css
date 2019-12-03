@@ -9,20 +9,55 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background-color: black; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  line-height: 1.6;
+  font-size: 2rem;
+  text-transform: uppercase; }
+
+.player-name {
+  font-size: 5rem; }
+
+.player-score {
+  font-size: 8rem; }
+
+.player-present-box {
+  font-weight: 300; }
+
+.player-present-score {
+  font-size: 3.5rem; }
 
 .player {
-  background-color: orangered;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); }
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-content: center; }
+  .player__panel {
+    text-align: center; }
+    .player__panel img {
+      width: 4rem;
+      height: auto; }
+    .player__panel-1 {
+      height: 95vh;
+      background-color: darkgray;
+      display: grid;
+      grid-auto-rows: repeat(3, 1fr);
+      align-items: center; }
+    .player__panel-2 {
+      height: 95vh;
+      display: grid;
+      grid-auto-rows: repeat(3, 1fr);
+      align-items: center; }
 
 .container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100rem;
-  height: 100vh;
-  background-color: orangered;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); }
+  width: 85%;
+  height: 95vh;
+  background-color: white; }
