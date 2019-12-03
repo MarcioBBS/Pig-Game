@@ -1,0 +1,27 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    line-height: 1.6;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.player {
+
+    &-name {
+        font-size: 5rem;
+    }
+
+    &-score {
+        font-size: 8rem;        
+    }
+
+    &-present-box {
+        font-weight: 300;    
+    }
+    
+    &-present-score {
+        font-size: 3.5rem;
+    }
+   
+}
