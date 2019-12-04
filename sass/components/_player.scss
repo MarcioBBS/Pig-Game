@@ -44,8 +44,10 @@
 
     .player-present-box {
         background-color: $color-secondary;
-        padding: 1.5rem 7rem;
+        font-size: 1.4rem;
+        padding: 1rem 5rem;
         border-radius: .5rem;
         justify-self: center;
+        letter-spacing: 3px;
     }
 }

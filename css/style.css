@@ -24,7 +24,7 @@ body {
   font-size: 5rem; }
 
 .player-score {
-  font-size: 12rem;
+  font-size: 10rem;
   color: #652011; }
 
 .player-present-box {
@@ -36,6 +36,30 @@ body {
 
 .d-none {
   display: none; }
+
+.btn {
+  background: none;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center; }
+  .btn-add-outline {
+    top: 8rem; }
+  .btn-loop2 {
+    top: 51rem; }
+  .btn-hand {
+    top: 58.5rem; }
+  .btn .icon {
+    height: 3rem;
+    width: 3rem;
+    font-weight: 200;
+    fill: #652011;
+    margin-right: 1.5rem; }
+    .btn .icon-hand {
+      transform: rotate(15deg); }
 
 .panel {
   display: grid;
@@ -72,9 +96,11 @@ body {
         margin-right: 2rem; }
   .panel .player-present-box {
     background-color: #652011;
-    padding: 1.5rem 7rem;
+    font-size: 1.4rem;
+    padding: 1rem 5rem;
     border-radius: .5rem;
-    justify-self: center; }
+    justify-self: center;
+    letter-spacing: 3px; }
 
 .container {
   position: absolute;

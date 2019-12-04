@@ -1,0 +1,36 @@
+.btn {
+    background: none;
+    border: none;
+    text-transform: uppercase;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    display: flex;
+    align-items: center;
+   
+    &-add-outline {
+        top: 8rem;
+    }
+
+    &-loop2 {
+        top: 51rem;
+    }
+
+    &-hand {
+        top: 58.5rem;
+    }
+
+    .icon {        
+        height: 3rem;
+        width: 3rem;
+        font-weight: 200;
+        fill: $color-secondary;
+        margin-right: 1.5rem;        
+        
+        &-hand {
+            transform: rotate(15deg);
+        }
+    }    
+}

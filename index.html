@@ -12,21 +12,20 @@
         <title>Pig Game</title>
     </head>
     <body>
-        <div class="container">            
+        <div class="container">                        
             <div class="panel">
-
                 <!-- Player 1 -->
                 <div class="panel__player">
                     <div class="panel__player-1">
                         <div class="player-name" id="player-name-1">
                             <span>Player 1</span>
-                            <img src="img/favicon.png" alt="Player pig icon" class="">
+                            <img src="img/pig-dark.png" alt="Player pig icon" class="">
                         </div>
                         <div class="player-score" id="player-score-1">
                             <span>0</span>
                         </div>
                         <div class="player-present-box">
-                            <span>Present</span>
+                            <span>Current</span>
                             <div class="player-present-score" id="present-1">0</div>
                         </div>
                     </div>
@@ -37,21 +36,42 @@
                     <div class="panel__player-2">
                         <div class="player-name" id="player-name-2">
                             <span>Player 2</span>
-                            <img src="img/favicon.png" alt="Player pig icon" class="">
+                            <img src="img/pig-dark.png" alt="Player pig icon" class="">
                         </div>
                         <div class="player-score" id="player-score-2">
                             <span>0</span>
                         </div>
                         <div class="player-present-box">
-                            <span>Present</span>
+                            <span>Current</span>
                             <div class="player-present-score" id="present-2">0</div>
                         </div>
                     </div>
                 </div>
-
-            </div>
+            </div>                 
         </div>
 
+        <button class="btn btn-add-outline">
+            <svg class="icon icon-add-outline">
+                <use xlink:href="img/sprite.svg#icon-add-outline"></use>                        
+            </svg>
+            <span class="btn-title">New Game</span>
+        </button>
+
+        <button class="btn btn-loop2">
+            <svg class="icon icon-loop2">
+                <use xlink:href="img/sprite.svg#icon-loop2"></use>                        
+            </svg>
+            <span class="btn-title">Roll dice</span>
+        </button>
+
+        <button class="btn btn-hand">
+            <svg class="icon icon-hand">
+                <use xlink:href="img/sprite.svg#icon-hand"></use>                        
+            </svg>
+            <span class="btn-title">Hold</span>
+        </button>
+        
+        <!-- Scripts -->
         <script src="app/index.js"></script>
     </body>
     </html>
