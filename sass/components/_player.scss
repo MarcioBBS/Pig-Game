@@ -1,4 +1,4 @@
-.panel {
+.panel { 
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -6,7 +6,7 @@
 
     &__player {
         text-align: center;
-
+        
         img {
             width: 3rem;
             height: auto;
@@ -14,22 +14,38 @@
         }
 
         &-1 {            
-            height: 95vh;
-            background-color: darkgray;
+            height: 85vh;
+            background-color: $color-grey-1;
+            border-radius: 1rem 0 0 1rem;
             
             @include grid-side-panel;
         }
 
         &-2 {
-            height: 95vh;            
+            height: 85vh;
+            background-color: white;
+            border-radius: 0 1rem 1rem 0 ;
 
             @include grid-side-panel;
         }
 
-        .player-name {
-            display: flex;
-            align-items: center;
+        .player-name { 
+            display: grid;
+            grid-template-columns: 60% 20%;
             justify-content: center;
-        }
+            align-items: center;
+
+            span {
+                justify-self: end;
+                margin-right: 2rem;
+            }
+        }       
+    }
+
+    .player-present-box {
+        background-color: $color-secondary;
+        padding: 1.5rem 7rem;
+        border-radius: .5rem;
+        justify-self: center;
     }
 }
