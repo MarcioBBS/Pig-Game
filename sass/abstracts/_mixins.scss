@@ -7,6 +7,8 @@
 
 @mixin grid-side-panel {
     display: grid;
-    grid-auto-rows: repeat(3, 1fr);            
+    grid-auto-rows: 1fr 20% 1fr;
     align-items: center;
+
+    // border-radius: 1rem;
 }
