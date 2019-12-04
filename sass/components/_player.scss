@@ -1,15 +1,16 @@
-.player {
+.panel {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-content: center;
 
-    &__panel {
+    &__player {
         text-align: center;
 
         img {
-            width: 4rem;
+            width: 3rem;
             height: auto;
+            margin-left: 2rem;
         }
 
         &-1 {            
@@ -23,6 +24,12 @@
             height: 95vh;            
 
             @include grid-side-panel;
+        }
+
+        .player-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }
