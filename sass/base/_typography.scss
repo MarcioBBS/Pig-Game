@@ -13,11 +13,13 @@ body {
     }
 
     &-score {
-        font-size: 8rem;        
+        font-size: 12rem;
+        color: $color-secondary;
     }
 
     &-present-box {
-        font-weight: 300;    
+        font-weight: 300;
+        color: $color-white;
     }
     
     &-present-score {
