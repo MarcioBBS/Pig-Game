@@ -13,9 +13,9 @@ html {
 body {
     box-sizing: border-box;
     height: 100vh;
-    background-image: linear-gradient(to right bottom, 
-        rgba($color-primary, .8),
-        rgba($color-secondary, .8));
-
+    background-image: radial-gradient(
+        rgba($color-primary, .2) 0%,
+        rgba($color-primary, .2) 40%,
+        $color-secondary);
     
 }
