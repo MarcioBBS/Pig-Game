@@ -1,5 +1,6 @@
 .container {
     @include center(absolute);
     width: 80vw;
-    height: 85vh;
+    height: 80vh;    
+    position: relative;    
 }

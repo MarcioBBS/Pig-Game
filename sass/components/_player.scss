@@ -10,11 +10,10 @@
         img {
             width: 3rem;
             height: auto;
-            margin-left: 2rem;
         }
 
         &-1 {            
-            height: 85vh;
+            height: 80vh;
             background-color: $color-grey-1;
             border-radius: 1rem 0 0 1rem;
             
@@ -22,30 +21,18 @@
         }
 
         &-2 {
-            height: 85vh;
+            height: 80vh;
             background-color: white;
             border-radius: 0 1rem 1rem 0 ;
 
             @include grid-side-panel;
         }
-
-        .player-name { 
-            display: grid;
-            grid-template-columns: 60% 20%;
-            justify-content: center;
-            align-items: center;
-
-            span {
-                justify-self: end;
-                margin-right: 2rem;
-            }
-        }       
     }
 
     .player-present-box {
         background-color: $color-secondary;
-        font-size: 1.4rem;
-        padding: 1rem 5rem;
+        font-size: 1.1rem;
+        padding: .8rem 3rem;
         border-radius: .5rem;
         justify-self: center;
         letter-spacing: 3px;
