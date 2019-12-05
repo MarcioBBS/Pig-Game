@@ -99,6 +99,8 @@ body {
   transform: translate(-50%);
   display: flex;
   align-items: center; }
+  .btn:focus {
+    outline: none; }
   .btn-add-outline {
     top: 2rem; }
     .btn-add-outline:hover > svg {
@@ -118,10 +120,12 @@ body {
     width: 3.2rem;
     font-weight: 200;
     fill: #652011;
-    margin-right: 1.5rem; }
+    margin-right: 1.5rem;
+    transform: translateX(1rem); }
     .btn .icon-hand {
-      transform: rotate(15deg); }
+      transform: rotate(15deg) translateX(1.2rem); }
   .btn-title {
+    padding: .8rem .8rem;
     transition: all 1s; }
     .btn-title:hover {
       border-bottom: 1px solid #652011;
