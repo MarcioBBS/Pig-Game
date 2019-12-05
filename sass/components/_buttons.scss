@@ -9,26 +9,53 @@
 
     display: flex;
     align-items: center;
+
+    backface-visibility: hidden;
    
     &-add-outline {
-        top: 8rem;
+        top: 2rem;
+        
+        &:hover > svg {
+            transform: scale(1.2);
+            transition: all 1s;
+        }
     }
 
     &-loop2 {
-        top: 51rem;
+        bottom: 23%;
+
+        &:hover > svg {
+            animation: rotate 1s infinite linear;
+        }
     }
 
     &-hand {
-        top: 58.5rem;
+        bottom: 10%;
+
+        &:hover > svg {
+            animation: pulse 1s infinite linear;
+        }
+    }
+
+    &-title {
+        font-size: 2rem;
+        font-weight: 200;
+        
+        
+
+        &:hover {
+            transition: all .4s;
+            transform: translateX(.5rem);
+        }
     }
 
     .icon {        
-        height: 3rem;
-        width: 3rem;
-        font-weight: 200;
+        height: 3.5rem;
+        width: 3.5rem;
+        font-weight: 200;        
         fill: $color-secondary;
-        margin-right: 1.5rem;        
-        
+        margin-right: 1.5rem;
+
         &-hand {
             transform: rotate(15deg);
         }

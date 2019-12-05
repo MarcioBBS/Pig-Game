@@ -1,3 +1,47 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(15deg); }
+  50% {
+    transform: scale(1.2) rotate(15deg); }
+  100% {
+    transform: scale(1) rotate(15deg); } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(180deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-12rem); }
+  80% {
+    opacity: .5;
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(12rem); }
+  80% {
+    opacity: .5;
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 *,
 *::before,
 *::after {
@@ -11,7 +55,7 @@ html {
 body {
   box-sizing: border-box;
   height: 100vh;
-  background-image: linear-gradient(to right bottom, rgba(234, 88, 109, 0.8), rgba(101, 32, 17, 0.8)); }
+  background-image: radial-gradient(rgba(234, 88, 109, 0.2) 0%, rgba(234, 88, 109, 0.2) 40%, #652011); }
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -20,19 +64,25 @@ body {
   font-size: 2rem;
   text-transform: uppercase; }
 
-.player-name {
-  font-size: 5rem; }
-
-.player-score {
-  font-size: 10rem;
-  color: #652011; }
-
-.player-present-box {
-  font-weight: 300;
-  color: #fff; }
-
-.player-present-score {
-  font-size: 3.5rem; }
+.player {
+  transition: all .4s; }
+  .player-name {
+    font-size: 4.5rem;
+    letter-spacing: .5rem; }
+    .player-name-1 {
+      animation: moveInLeft 1s ease-out; }
+    .player-name-2 {
+      animation: moveInRight 1s ease-out; }
+  .player-score {
+    font-size: 8.5rem;
+    color: #652011;
+    animation: moveInTop .6s ease-in-out .75s;
+    animation-fill-mode: backwards; }
+  .player-present-box {
+    font-weight: 300;
+    color: #fff; }
+  .player-present-score {
+    font-size: 3.5rem; }
 
 .d-none {
   display: none; }
@@ -45,16 +95,30 @@ body {
   left: 50%;
   transform: translate(-50%);
   display: flex;
-  align-items: center; }
+  align-items: center;
+  backface-visibility: hidden; }
   .btn-add-outline {
-    top: 8rem; }
+    top: 2rem; }
+    .btn-add-outline:hover > svg {
+      transform: scale(1.2);
+      transition: all 1s; }
   .btn-loop2 {
-    top: 51rem; }
+    bottom: 23%; }
+    .btn-loop2:hover > svg {
+      animation: rotate 1s infinite linear; }
   .btn-hand {
-    top: 58.5rem; }
+    bottom: 10%; }
+    .btn-hand:hover > svg {
+      animation: pulse 1s infinite linear; }
+  .btn-title {
+    font-size: 2rem;
+    font-weight: 200; }
+    .btn-title:hover {
+      transition: all .4s;
+      transform: translateX(0.5rem); }
   .btn .icon {
-    height: 3rem;
-    width: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
     font-weight: 200;
     fill: #652011;
     margin-right: 1.5rem; }
@@ -70,34 +134,25 @@ body {
     text-align: center; }
     .panel__player img {
       width: 3rem;
-      height: auto;
-      margin-left: 2rem; }
+      height: auto; }
     .panel__player-1 {
-      height: 85vh;
+      height: 80vh;
       background-color: #dfdfdf;
       border-radius: 1rem 0 0 1rem;
       display: grid;
       grid-auto-rows: 1fr 20% 1fr;
       align-items: center; }
     .panel__player-2 {
-      height: 85vh;
+      height: 80vh;
       background-color: white;
       border-radius: 0 1rem 1rem 0;
       display: grid;
       grid-auto-rows: 1fr 20% 1fr;
       align-items: center; }
-    .panel__player .player-name {
-      display: grid;
-      grid-template-columns: 60% 20%;
-      justify-content: center;
-      align-items: center; }
-      .panel__player .player-name span {
-        justify-self: end;
-        margin-right: 2rem; }
   .panel .player-present-box {
     background-color: #652011;
-    font-size: 1.4rem;
-    padding: 1rem 5rem;
+    font-size: 1.1rem;
+    padding: .8rem 3rem;
     border-radius: .5rem;
     justify-self: center;
     letter-spacing: 3px; }
@@ -108,4 +163,5 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80vw;
-  height: 85vh; }
+  height: 80vh;
+  position: relative; }
