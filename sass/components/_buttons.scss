@@ -16,31 +16,29 @@
     &:focus {
         outline: none;
     }
-   
+
+    @include hoverButton(add-outline);
+    @include hoverButton(loop);
+    @include hoverButton(hand-hold);
+
+    &:hover span {
+        border-bottom: 1px solid $color-secondary;
+        perspective: 1px;
+        letter-spacing: 2px;
+        transition: all 1s;
+        -webkit-font-smoothing: antialiased;
+    }
+    
     &-add-outline {
-        top: 2rem;
-                
-        &:hover > svg {
-            transform: scale(1.15);
-            transition: all 1s;
-            backface-visibility: hidden;
-        }
+        top: 2rem;      
     }
 
-    &-loop2 {
-        bottom: 23%;
-
-        &:hover > svg {
-            animation: rotate 1s infinite linear;
-        }
+    &-loop {
+        bottom: 23%;     
     }
 
     &-hand {
-        bottom: 10%;
-
-        &:hover > svg {
-            animation: pulse 1s infinite linear;
-        }
+        bottom: 10%;       
     }  
 
     .icon {        
@@ -49,20 +47,10 @@
         font-weight: 200;        
         fill: $color-secondary;
         margin-right: 1.5rem;
-        transform: translateX(1rem);
+        margin-right: 2rem;
 
         &-hand {
-            transform: rotate(15deg) translateX(1.2rem);
-        }
-    }
-
-    &-title {
-        padding: .8rem .8rem;
-        transition: all 1s;
-
-        &:hover {            
-            border-bottom: 1px solid $color-secondary;
-            letter-spacing: 2px;
+            transform: rotate(15deg) translateX(1.2rem);            
         }
     }
 }

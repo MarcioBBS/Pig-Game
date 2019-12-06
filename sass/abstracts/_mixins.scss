@@ -5,8 +5,35 @@
     transform: translate(-50%, -50%);
 }
 
-@mixin grid-side-panel {
+@mixin gridSidePanel {
     display: grid;
     grid-auto-rows: 1fr 20% 1fr;
     align-items: center;
+}
+
+@mixin hoverButton($icon) {
+
+    transition: all .4s;
+    backface-visibility: hidden;
+
+    @if $icon == add-outline {  
+        &:hover >  .icon-add-outline {           
+            transform: scale(1.2);            
+       }
+    }
+
+    @if $icon == loop {  
+        &:hover >  .icon-loop {
+            animation: rotate .7s infinite linear;
+       }
+    }
+
+    @if $icon == hand-hold {  
+        &:hover >  .icon-hand {
+            animation: pulse .7s infinite linear;
+        }
+    }
+
+    
+
 }
