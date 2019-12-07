@@ -114,6 +114,12 @@ body {
 .d-none {
   display: none; }
 
+.bg-color-grey {
+  background-color: #dfdfdf; }
+
+.bg-color-white {
+  background-color: #fff; }
+
 .btn {
   font-size: 1.6rem;
   font-weight: 200;
@@ -170,9 +176,9 @@ body {
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.18);
   height: 9rem; }
   .dice-1 {
-    margin-top: -13rem; }
+    margin-top: -12rem; }
   .dice-2 {
-    margin-top: -1rem; }
+    margin-top: -1.2rem; }
 
 .panel {
   display: grid;
@@ -193,7 +199,7 @@ body {
       align-items: center; }
     .panel__player-2 {
       height: 90vh;
-      background-color: white;
+      background-color: #fff;
       border-radius: 0 1rem 1rem 0;
       display: grid;
       grid-auto-rows: 1fr 20% 1fr;
