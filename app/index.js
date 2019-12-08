@@ -13,10 +13,7 @@ init();
 buttonRoll.addEventListener('click', ()=> {
     let dice1 = createDiceDOM();
     let dice2 = createDiceDOM();
-
-    // Get a random number from 1 to 6
-    dice1 = Math.floor(Math.random() * 6) + 1;
-
+       
     // Update dice picture source
     diceDOM1.src = `img/dice-${dice1}.png`;
     // Show dice
@@ -31,32 +28,32 @@ buttonRoll.addEventListener('click', ()=> {
     } else {
         // Player loses the global score
         roundScore = 0
-        // Next player plays
-        //activePlayer === 1 ? activePlayer = 2 : activePlayer = 1;
+        scores[activePlayer - 1] = 0;
+        
+        // Update UI - Active player gets the GLOBAL score to 0
+        document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];      
 
-        // Next player plays
-        if (activePlayer === 1) {
-            activePlayer = 2;
-            // Set styles for the active and non active players
-            selectActivePlayer(1, 2);
-
-        } else {
-            activePlayer = 1
-            // Set styles for the active and non active players
-            selectActivePlayer(2, 1);
-        }
-
-        // Reset both present player scores
-        document.getElementById('present-score-1').textContent = 0;
-        document.getElementById('present-score-2').textContent = 0;
+        nextPlayer();    
     }
 });
 
-function selectActivePlayer(activePlayer, holdPlayer) {
-    let pigIcons = document.querySelectorAll('.pig');
+function nextPlayer() {
+    let holdPlayer;
     let playerFontBold = 1;
+    let pigIcons = document.querySelectorAll('.pig');    
+    
+    roundScore = 0;
 
-    // Change the background color
+    if (activePlayer === 1) {
+        activePlayer = 2;
+        holdPlayer = 1;
+
+    } else {
+        activePlayer = 1;
+        holdPlayer = 2;
+    }
+
+    // Update UI - Change the background color
     document.querySelector(`.panel__player-${activePlayer}`).style.backgroundColor = '#dfdfdf';    
     document.querySelector(`.panel__player-${holdPlayer}`).style.backgroundColor = '#fff';    
         
@@ -66,6 +63,13 @@ function selectActivePlayer(activePlayer, holdPlayer) {
         document.querySelector(`.player-name-${playerFontBold}`).classList.toggle('font-weight-300');
         playerFontBold++ ;
     }
+
+    // Reset both present player scores
+     document.getElementById('present-score-1').textContent = 0;
+     document.getElementById('present-score-2').textContent = 0;
+
+    // Hide the dice
+    diceDOM1.classList.add('d-none');
 }
 
 function createDiceDOM() {
@@ -79,7 +83,7 @@ function init() {
     
     document.getElementById('player-score-1').textContent = 0;
     document.getElementById('player-score-2').textContent = 0;
-
+    
     document.getElementById('present-score-1').textContent = 0;
     document.getElementById('present-score-2').textContent = 0;
 }
