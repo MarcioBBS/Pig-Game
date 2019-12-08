@@ -37,6 +37,30 @@ buttonRoll.addEventListener('click', ()=> {
     }
 });
 
+// Hold the dice
+buttonHold.addEventListener('click', ()=> { 
+    let diceIcons = document.querySelectorAll('.dice-icon');
+
+    for (let i = 0; i < diceIcons.length; i++) {
+         diceIcons[i].classList.add('d-none');
+    }
+
+    // Add Current score to Global score
+    scores[activePlayer - 1] += roundScore;
+
+    // Update UI
+    document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];  
+
+    // Check if the player won the game
+    if (scores[activePlayer - 1] >= 20) {
+        document.querySelector(`.player-name-${activePlayer}`).textContent = 'Winner';
+        diceDOM1.classList.add('d-none');
+    } else {
+        nextPlayer();
+    }
+
+});
+
 function nextPlayer() {
     let holdPlayer;
     let playerFontBold = 1;
