@@ -32,14 +32,18 @@ buttonRoll.addEventListener('click', ()=> {
         // Player loses the global score
         roundScore = 0
         // Next player plays
-        activePlayer === 1 ? activePlayer = 2 : activePlayer = 1;
+        //activePlayer === 1 ? activePlayer = 2 : activePlayer = 1;
 
-        // Change background-color and add/remove pig icon
+        // Next player plays
         if (activePlayer === 1) {
-            selectActivePlayer('.panel__player-1', '.panel__player-2') ;
+            activePlayer = 2;
+            // Set styles for the active and non active players
+            selectActivePlayer(1, 2);
 
         } else {
-            selectActivePlayer('.panel__player-2', '.panel__player-1');
+            activePlayer = 1
+            // Set styles for the active and non active players
+            selectActivePlayer(2, 1);
         }
 
         // Reset both present player scores
@@ -48,12 +52,20 @@ buttonRoll.addEventListener('click', ()=> {
     }
 });
 
-function selectActivePlayer(player1, player2) {
-    document.querySelector(player1).style.backgroundColor = '#dfdfdf';
-    document.querySelector(player2).style.backgroundColor = '#fff';
+function selectActivePlayer(activePlayer, holdPlayer) {
+    let pigIcons = document.querySelectorAll('.pig');
+    let playerFontBold = 1;
 
-    document.querySelector('.pig-1').classList.toggle('d-none');
-    document.querySelector('.pig-2').classList.toggle('d-none');
+    // Change the background color
+    document.querySelector(`.panel__player-${activePlayer}`).style.backgroundColor = '#dfdfdf';    
+    document.querySelector(`.panel__player-${holdPlayer}`).style.backgroundColor = '#fff';    
+        
+    // Add pig icon and set the font bold for the active player
+    for (let i = 0; i < pigIcons.length; i++) {
+        pigIcons[i].classList.toggle('d-none');        
+        document.querySelector(`.player-name-${playerFontBold}`).classList.toggle('font-weight-300');
+        playerFontBold++ ;
+    }
 }
 
 function createDiceDOM() {

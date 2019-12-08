@@ -120,6 +120,9 @@ body {
 .bg-color-white {
   background-color: #fff; }
 
+.font-weight-300 {
+  font-weight: 300; }
+
 .btn {
   font-size: 1.6rem;
   font-weight: 200;
