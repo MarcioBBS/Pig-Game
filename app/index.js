@@ -2,12 +2,17 @@ let scores, roundScore, activePlayer, previousPlayer;
 
 let diceDOM1 = document.querySelector('.dice-1');
 let diceDOM2 = document.querySelector('.dice-2');
+let pigIcons = document.querySelectorAll('.pig');
 
 let buttonRoll = document.querySelector('.btn-loop');
 let buttonHold = document.querySelector('.btn-hand');
 let buttonNewGame = document.querySelector('.btn-add-outline');
 
 init();
+
+buttonNewGame.addEventListener('click', ()=> {    
+    init();
+}); 
 
 // Roll the dice
 buttonRoll.addEventListener('click', ()=> {
@@ -44,16 +49,11 @@ buttonRoll.addEventListener('click', ()=> {
 });
 
 // Hold the dice
-buttonHold.addEventListener('click', ()=> { 
-    let diceIcons = document.querySelectorAll('.dice-icon');
+buttonHold.addEventListener('click', ()=> {    
 
     //Update UI - Removes previous player color-switch style
     if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
         document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
-    }
-
-    for (let i = 0; i < diceIcons.length; i++) {
-         diceIcons[i].classList.add('d-none');
     }
 
     // Add Current score to Global score
@@ -64,7 +64,11 @@ buttonHold.addEventListener('click', ()=> {
 
     // Check if the player won the game
     if (scores[activePlayer - 1] >= 20) {
-        document.querySelector(`.player-name-${activePlayer}`).textContent = 'Winner';
+
+        let winner = document.querySelector(`.player-name-${activePlayer}`).children;
+        winner[0].textContent = 'Winner';
+        winner[1].classList.toggle('d-none');
+                
         diceDOM1.classList.add('d-none');
     } else {
         nextPlayer();
@@ -73,8 +77,7 @@ buttonHold.addEventListener('click', ()=> {
 });
 
 function nextPlayer() {    
-    let playerFontBold = 1;
-    let pigIcons = document.querySelectorAll('.pig');    
+    let playerFontBold = 1;   
     
     roundScore = 0;
 
@@ -93,7 +96,7 @@ function nextPlayer() {
         
     // Add pig icon and set the font bold for the active player
     for (let i = 0; i < pigIcons.length; i++) {
-        pigIcons[i].classList.toggle('d-none');        
+        pigIcons[i].classList.toggle('d-none');
         document.querySelector(`.player-name-${playerFontBold}`).classList.toggle('font-weight-300');
         playerFontBold++ ;
     }
@@ -115,6 +118,8 @@ function createDiceDOM() {
 }
 
 function init() {
+    let playerName1;
+    let playerName2;
     scores = [0,0];
     roundScore = 0;
     activePlayer = 1;
@@ -123,9 +128,28 @@ function init() {
     document.getElementById('player-score-1').textContent = 0;
     document.getElementById('player-score-2').textContent = 0;
 
+    playerName1 = document.getElementById('player-1').getElementsByTagName('span');
+    playerName2 = document.getElementById('player-2').getElementsByTagName('span');
+    playerName1[0].textContent = 'Player 1';
+    playerName2[0].textContent = 'Player 2';
+
     document.getElementById('player-score-1').classList.add('move-to-top');
     document.getElementById('player-score-2').classList.add('move-to-top');
     
     document.getElementById('present-score-1').textContent = 0;
     document.getElementById('present-score-2').textContent = 0;
+
+    document.querySelector(`.panel__player-1`).style.backgroundColor = '#dfdfdf';    
+    document.querySelector(`.panel__player-2`).style.backgroundColor = '#fff';
+
+    diceDOM1.classList.add('d-none');
+
+    pigIcons[0].classList.remove('d-none');
+    pigIcons[1].classList.add('d-none');
+    
+    document.getElementById(`player-score-1`).classList.remove('color-switch');
+    document.getElementById(`player-score-2`).classList.remove('color-switch');
+
+    document.querySelector(`.player-name-1`).classList.add('font-weight-300');
+    document.querySelector(`.player-name-2`).classList.remove('font-weight-300');
 }
