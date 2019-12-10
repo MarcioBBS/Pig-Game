@@ -10,9 +10,7 @@ let buttonNewGame = document.querySelector('.btn-add-outline');
 
 init();
 
-buttonNewGame.addEventListener('click', ()=> {    
-    init();
-}); 
+buttonNewGame.addEventListener('click', init); 
 
 // Roll the dice
 buttonRoll.addEventListener('click', ()=> {
