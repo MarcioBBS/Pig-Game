@@ -1,15 +1,31 @@
 .d-none {
-    display: none;
+    display: none !important;
 }
 
 .bg-color-grey {
-    background-color: $color-grey-1;
+    background-color: $color-grey-1 !important;
 }
 
 .bg-color-white {
-    background-color: $color-white;
+    background-color: $color-white !important;
 }
 
 .font-weight-300 {
-    font-weight: 300;
+    font-weight: 300 !important;
+}
+
+.move-to-top {
+    animation: moveInTop .5s ease-in-out .75s;
+    animation-fill-mode: backwards; // applys all the style of 0% before the animation starts 
+}
+
+.fade-Out {
+    animation: fadeOut 4s !important;
+    animation-fill-mode: both !important;
+}
+
+.color-switch {
+    animation: colorSwitch 1s !important;    
+    animation-fill-mode: both !important;
+    transition: all .8s;
 }

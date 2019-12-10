@@ -26,10 +26,7 @@ body {
 
     &-score {
         font-size: 8.5rem;
-        color: $color-secondary;
-
-        animation: moveInTop .6s ease-in-out .75s;
-        animation-fill-mode: backwards; // applys all the style of 0% before the animation starts 
+        color: $color-secondary;       
     }
 
     &-present-box {

@@ -1,25 +1,15 @@
 @keyframes pulse {
-    0% {
-        transform: scale(1) $rotate-15deg;
-    }
+    0% { transform: scale(1) $rotate-15deg; }
 
-    50% {
-        transform: scale(1.2) $rotate-15deg;
-    }
+    50% { transform: scale(1.2) $rotate-15deg; }
 
-    100% {
-        transform: scale(1) $rotate-15deg;
-    }
+    100% { transform: scale(1) $rotate-15deg; }
 }
 
 @keyframes rotate {
-    0% {
-        transform: rotate(180deg);
-    }
+    0% { transform: rotate(180deg); }
 
-    100% {
-        transform: rotate(360deg);
-    }    
+    100% { transform: rotate(360deg); }    
 }
 
 @keyframes moveInLeft {
@@ -65,5 +55,33 @@
     100% {
         opacity: 1;
         transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    } 
+}
+
+@keyframes fadeOut {
+   0% { opacity: 1; }
+
+    100% { opacity: 0; }
+}
+
+@keyframes colorSwitch {
+    0% {
+        color: $color-secondary;
+    }
+
+    100% {
+        color: $color-grey-3;
     }
 }

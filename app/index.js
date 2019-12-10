@@ -1,4 +1,4 @@
-let scores, roundScore, activePlayer;
+let scores, roundScore, activePlayer, previousPlayer;
 
 let diceDOM1 = document.querySelector('.dice-1');
 let diceDOM2 = document.querySelector('.dice-2');
@@ -31,7 +31,13 @@ buttonRoll.addEventListener('click', ()=> {
         scores[activePlayer - 1] = 0;
         
         // Update UI - Active player gets the GLOBAL score to 0
-        document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];      
+        document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];
+        document.getElementById(`player-score-${activePlayer}`).classList.add('color-switch');
+
+        // Update UI - Removes previous player color-switch style
+        if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
+            document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+        }
 
         nextPlayer();    
     }
@@ -41,6 +47,11 @@ buttonRoll.addEventListener('click', ()=> {
 buttonHold.addEventListener('click', ()=> { 
     let diceIcons = document.querySelectorAll('.dice-icon');
 
+    //Update UI - Removes previous player color-switch style
+    if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
+        document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+    }
+
     for (let i = 0; i < diceIcons.length; i++) {
          diceIcons[i].classList.add('d-none');
     }
@@ -48,7 +59,7 @@ buttonHold.addEventListener('click', ()=> {
     // Add Current score to Global score
     scores[activePlayer - 1] += roundScore;
 
-    // Update UI
+    // Update active player global score.
     document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];  
 
     // Check if the player won the game
@@ -61,8 +72,7 @@ buttonHold.addEventListener('click', ()=> {
 
 });
 
-function nextPlayer() {
-    let holdPlayer;
+function nextPlayer() {    
     let playerFontBold = 1;
     let pigIcons = document.querySelectorAll('.pig');    
     
@@ -70,16 +80,16 @@ function nextPlayer() {
 
     if (activePlayer === 1) {
         activePlayer = 2;
-        holdPlayer = 1;
+        previousPlayer = 1;
 
     } else {
         activePlayer = 1;
-        holdPlayer = 2;
+        previousPlayer = 2;
     }
 
     // Update UI - Change the background color
     document.querySelector(`.panel__player-${activePlayer}`).style.backgroundColor = '#dfdfdf';    
-    document.querySelector(`.panel__player-${holdPlayer}`).style.backgroundColor = '#fff';    
+    document.querySelector(`.panel__player-${previousPlayer}`).style.backgroundColor = '#fff';    
         
     // Add pig icon and set the font bold for the active player
     for (let i = 0; i < pigIcons.length; i++) {
@@ -89,8 +99,12 @@ function nextPlayer() {
     }
 
     // Reset both present player scores
-     document.getElementById('present-score-1').textContent = 0;
-     document.getElementById('present-score-2').textContent = 0;
+    document.getElementById('present-score-1').textContent = 0;
+    document.getElementById('present-score-2').textContent = 0;
+
+    // Remove initial slide to top animation
+    document.getElementById('player-score-1').classList.remove('move-to-top');
+    document.getElementById('player-score-2').classList.remove('move-to-top');
 
     // Hide the dice
     diceDOM1.classList.add('d-none');
@@ -104,9 +118,13 @@ function init() {
     scores = [0,0];
     roundScore = 0;
     activePlayer = 1;
+    previousPlayer = activePlayer;
     
     document.getElementById('player-score-1').textContent = 0;
     document.getElementById('player-score-2').textContent = 0;
+
+    document.getElementById('player-score-1').classList.add('move-to-top');
+    document.getElementById('player-score-2').classList.add('move-to-top');
     
     document.getElementById('present-score-1').textContent = 0;
     document.getElementById('present-score-2').textContent = 0;

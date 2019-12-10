@@ -60,6 +60,26 @@ $breakpoint argument choices:
     opacity: 1;
     transform: translate(0); } }
 
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes colorSwitch {
+  0% {
+    color: #652011; }
+  100% {
+    color: #818181; } }
+
 *,
 *::before,
 *::after {
@@ -102,9 +122,7 @@ body {
       animation: moveInRight 1s ease-out; }
   .player-score {
     font-size: 8.5rem;
-    color: #652011;
-    animation: moveInTop .6s ease-in-out .75s;
-    animation-fill-mode: backwards; }
+    color: #652011; }
   .player-present-box {
     font-weight: 300;
     color: #fff; }
@@ -112,16 +130,29 @@ body {
     font-size: 3.5rem; }
 
 .d-none {
-  display: none; }
+  display: none !important; }
 
 .bg-color-grey {
-  background-color: #dfdfdf; }
+  background-color: #dfdfdf !important; }
 
 .bg-color-white {
-  background-color: #fff; }
+  background-color: #fff !important; }
 
 .font-weight-300 {
-  font-weight: 300; }
+  font-weight: 300 !important; }
+
+.move-to-top {
+  animation: moveInTop .5s ease-in-out .75s;
+  animation-fill-mode: backwards; }
+
+.fade-Out {
+  animation: fadeOut 4s !important;
+  animation-fill-mode: both !important; }
+
+.color-switch {
+  animation: colorSwitch 1s !important;
+  animation-fill-mode: both !important;
+  transition: all .8s; }
 
 .btn {
   font-size: 1.6rem;
@@ -189,10 +220,11 @@ body {
   justify-content: center;
   align-content: center; }
   .panel__player {
-    text-align: center; }
+    text-align: center;
+    transition: all .4s; }
     .panel__player img {
-      width: 3rem;
-      height: 3rem; }
+      width: 3.2rem;
+      height: 3.2rem; }
     .panel__player-1 {
       height: 90vh;
       background-color: #dfdfdf;
