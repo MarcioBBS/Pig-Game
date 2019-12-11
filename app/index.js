@@ -1,4 +1,4 @@
-let scores, roundScore, activePlayer, previousPlayer;
+let scores, roundScore, activePlayer, previousPlayer, winnerScore;
 
 let diceDOM1 = document.querySelector('.dice-1');
 let diceDOM2 = document.querySelector('.dice-2');
@@ -72,7 +72,7 @@ buttonHold.addEventListener('click', ()=> {
         document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];  
 
         // Check if the player won the game
-        if (scores[activePlayer - 1] >= 20) {
+        if (scores[activePlayer - 1] >= winnerScore) {
 
             let winner = document.querySelector(`.player-name-${activePlayer}`).children;
             winner[0].textContent = 'Winner';
@@ -134,6 +134,7 @@ function init() {
     let playerName1;
     let playerName2;
     gamePlaying = true;
+    winnerScore = 50;
     scores = [0,0];
     roundScore = 0;
     activePlayer = 1;
