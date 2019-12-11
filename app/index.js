@@ -8,70 +8,84 @@ let buttonRoll = document.querySelector('.btn-loop');
 let buttonHold = document.querySelector('.btn-hand');
 let buttonNewGame = document.querySelector('.btn-add-outline');
 
+// State variable
+let gamePlaying;
+
 init();
 
 buttonNewGame.addEventListener('click', init); 
 
 // Roll the dice
 buttonRoll.addEventListener('click', ()=> {
-    let dice1 = createDiceDOM();
-    let dice2 = createDiceDOM();
-       
-    // Update dice picture source
-    diceDOM1.src = `img/dice-${dice1}.png`;
-    // Show dice
-    diceDOM1.classList.remove('d-none');
 
-    // Update the roundScore, which is the player present score in case the dice is different than 1
-    if (dice1 !== 1) {
-        // Add score
-        roundScore+= dice1;
-        document.querySelector(`#present-score-${activePlayer}`).textContent = roundScore;
-    
-    } else {
-        // Player loses the global score
-        roundScore = 0
-        scores[activePlayer - 1] = 0;
+    if (gamePlaying) { 
+
+        // Create a random number
+        let dice1 = createDiceDOM();
+        let dice2 = createDiceDOM();
         
-        // Update UI - Active player gets the GLOBAL score to 0
-        document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];
-        document.getElementById(`player-score-${activePlayer}`).classList.add('color-switch');
+        // Update dice picture source
+        diceDOM1.src = `img/dice-${dice1}.png`;
+        diceDOM2.src = `img/dice-${dice2}.png`;
+        // Show dice
+        diceDOM1.classList.remove('d-none');
+        diceDOM2.classList.remove('d-none');
 
-        // Update UI - Removes previous player color-switch style
-        if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
-            document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+        // Update the roundScore, which is the player present score in case the dice is different than 1
+        if (dice1 !== 1 && dice2 !== 1) {
+            // Add score
+            roundScore+=  (dice1 + dice2);
+            document.querySelector(`#present-score-${activePlayer}`).textContent = roundScore;
+        
+        } else {
+            // Player loses the global score
+            roundScore = 0
+            scores[activePlayer - 1] = 0;
+            
+            // Update UI - Active player gets the GLOBAL score to 0
+            document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];
+            document.getElementById(`player-score-${activePlayer}`).classList.add('color-switch');
+
+            // Update UI - Removes previous player color-switch style
+            if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
+                document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+            }
+
+            nextPlayer();    
         }
-
-        nextPlayer();    
     }
 });
 
 // Hold the dice
-buttonHold.addEventListener('click', ()=> {    
+buttonHold.addEventListener('click', ()=> {
 
-    //Update UI - Removes previous player color-switch style
-    if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
-        document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+    if (gamePlaying) {
+        //Update UI - Removes previous player color-switch style
+        if (document.getElementById(`player-score-${previousPlayer}`).classList.contains('color-switch')) {
+            document.getElementById(`player-score-${previousPlayer}`).classList.remove('color-switch');
+        }
+
+        // Add Current score to Global score
+        scores[activePlayer - 1] += roundScore;
+
+        // Update active player global score.
+        document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];  
+
+        // Check if the player won the game
+        if (scores[activePlayer - 1] >= 20) {
+
+            let winner = document.querySelector(`.player-name-${activePlayer}`).children;
+            winner[0].textContent = 'Winner';
+            winner[1].classList.toggle('d-none');
+                    
+            diceDOM1.classList.add('d-none');
+            diceDOM2.classList.add('d-none');
+            gamePlaying = false;
+
+        } else {
+            nextPlayer();
+        }
     }
-
-    // Add Current score to Global score
-    scores[activePlayer - 1] += roundScore;
-
-    // Update active player global score.
-    document.getElementById(`player-score-${activePlayer}`).textContent = scores[activePlayer - 1];  
-
-    // Check if the player won the game
-    if (scores[activePlayer - 1] >= 20) {
-
-        let winner = document.querySelector(`.player-name-${activePlayer}`).children;
-        winner[0].textContent = 'Winner';
-        winner[1].classList.toggle('d-none');
-                
-        diceDOM1.classList.add('d-none');
-    } else {
-        nextPlayer();
-    }
-
 });
 
 function nextPlayer() {    
@@ -107,8 +121,9 @@ function nextPlayer() {
     document.getElementById('player-score-1').classList.remove('move-to-top');
     document.getElementById('player-score-2').classList.remove('move-to-top');
 
-    // Hide the dice
+    // Hide the dicea
     diceDOM1.classList.add('d-none');
+    diceDOM2.classList.add('d-none');
 }
 
 function createDiceDOM() {
@@ -118,6 +133,7 @@ function createDiceDOM() {
 function init() {
     let playerName1;
     let playerName2;
+    gamePlaying = true;
     scores = [0,0];
     roundScore = 0;
     activePlayer = 1;
@@ -141,6 +157,7 @@ function init() {
     document.querySelector(`.panel__player-2`).style.backgroundColor = '#fff';
 
     diceDOM1.classList.add('d-none');
+    diceDOM2.classList.add('d-none');
 
     pigIcons[0].classList.remove('d-none');
     pigIcons[1].classList.add('d-none');
