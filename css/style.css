@@ -239,14 +239,14 @@ body {
       display: grid;
       grid-auto-rows: 1fr 20% 1fr;
       align-items: center; }
-    .panel__player .player-present-box {
-      background-color: #652011;
-      font-size: 1.1rem;
-      padding: .8rem 3rem;
-      border-radius: .5rem;
-      justify-self: center;
-      letter-spacing: 3px;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
+  .panel .player-present-box {
+    background-color: #652011;
+    font-size: 1.1rem;
+    padding: .8rem 3rem;
+    border-radius: .5rem;
+    justify-self: center;
+    letter-spacing: 3px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
 
 .container {
   position: absolute;
