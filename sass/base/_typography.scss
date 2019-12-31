@@ -1,0 +1,55 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    line-height: 1.6;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.player {
+
+    transition: all .4s;
+
+    &-name {
+        font-size: 4.5rem;
+        letter-spacing: .5rem;
+
+        @include respond(tab-small) {
+            font-size: 3.5rem;
+        }
+
+        @include respond(phone) {
+            align-self: end;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
+
+        &-1 {
+            animation: moveInLeft 1s ease-out;
+        }
+
+        &-2 {
+            animation: moveInRight 1s ease-out;
+        }
+        
+    }
+
+    &-score {
+        font-size: 8.5rem;
+        color: $color-secondary;
+
+        @include respond(phone) {
+            font-size: 6.5rem;
+        }
+    }
+
+    &-present-box {
+        font-weight: 300;
+        color: $color-white;
+    }
+    
+    &-present-score {
+        font-size: 3.5rem;
+    }
+   
+}

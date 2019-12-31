@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,700,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Pig Game</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="panel">
+
+                <div class="dice">
+                    <img src="img/dice-5.png" alt="Dice" class="dice dice-1 d-none">
+                    <img src="img/dice-2.png" alt="Dice" class="dice dice-2 d-none">
+                </div>
+
+                <!-- Player 1 -->
+                <div class="panel__player">
+                    <div class="panel__player-1">
+                        <div class="player-name player-name-1 font-weight-300" id="player-1">
+                            <span>Player 1</span>
+                            <img src="img/pig-dark.png" alt="Player pig icon" class="pig">
+                        </div>
+                        <div class="player-score" id="player-score-1">
+                            <span>0</span>
+                        </div>
+                        <div class="player-present-box">
+                            <span>Current</span>
+                            <div class="player-present-score" id="present-score-1">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Player 2 -->
+                <div class="panel__player">
+                    <div class="panel__player-2">
+                        <div class="player-name player-name-2" id="player-2">
+                            <span>Player 2</span>
+                            <img src="img/pig-dark.png" alt="Player pig icon" class="pig">
+                        </div>
+                        <div class="player-score" id="player-score-2">
+                            <span>0</span>
+                        </div>
+                        <div class="player-present-box">
+                            <span>Current</span>
+                            <div class="player-present-score" id="present-score-2">0</div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <button class="btn btn-add-outline">
+                <svg class="icon icon-add-outline">
+                    <use xlink:href="img/sprite.svg#icon-add-outline"></use>                        
+                </svg>
+                <span class="btn-title">New Game</span>
+            </button>            
+            <button class="btn btn-loop">
+                <svg class="icon icon-loop">
+                    <use xlink:href="img/sprite.svg#icon-loop2"></use>                        
+                </svg>
+                <span class="btn-title">Roll dice</span>
+            </button>
+            <button class="btn btn-hand">
+                <svg class="icon icon-hand">
+                    <use xlink:href="img/sprite.svg#icon-hand"></use>                        
+                </svg>
+                <span class="btn-title">Hold</span>
+            </button>
+
+        </div>
+        
+        <!-- Scripts -->
+        <script src="app/index.js"></script>
+    </body>
+    </html>

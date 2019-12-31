@@ -1,0 +1,297 @@
+/* 
+0 - 600px:     Phone
+600 - 900px:   Tablet portrait
+900 - 1000px:   Tablet medium
+1000 - 1200px:  Tablet landscape
+[1200 - 1800]: Desktop. Where the normal styles apply - Where the website was first developed.
+1800px +   :   Big desktop
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-med
+- tab-land
+- big-desktop
+
+1em = 16px
+
+*/
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(15deg); }
+  50% {
+    transform: scale(1.2) rotate(15deg); }
+  100% {
+    transform: scale(1) rotate(15deg); } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(180deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-12rem); }
+  80% {
+    opacity: .5;
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(12rem); }
+  80% {
+    opacity: .5;
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+@keyframes moveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes colorSwitch {
+  0% {
+    color: #652011; }
+  100% {
+    color: #818181; } }
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  background-image: radial-gradient(rgba(234, 88, 109, 0.2) 0%, rgba(234, 88, 109, 0.2) 40%, #652011); }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  line-height: 1.6;
+  font-size: 2rem;
+  text-transform: uppercase; }
+
+.player {
+  transition: all .4s; }
+  .player-name {
+    font-size: 4.5rem;
+    letter-spacing: .5rem; }
+    @media only screen and (max-width: 48em) {
+      .player-name {
+        font-size: 3.5rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .player-name {
+        align-self: end;
+        margin-bottom: 1rem;
+        font-size: 3rem; } }
+    .player-name-1 {
+      animation: moveInLeft 1s ease-out; }
+    .player-name-2 {
+      animation: moveInRight 1s ease-out; }
+  .player-score {
+    font-size: 8.5rem;
+    color: #652011; }
+    @media only screen and (max-width: 37.5em) {
+      .player-score {
+        font-size: 6.5rem; } }
+  .player-present-box {
+    font-weight: 300;
+    color: #fff; }
+  .player-present-score {
+    font-size: 3.5rem; }
+
+.d-none {
+  display: none !important; }
+
+.bg-color-grey {
+  background-color: #dfdfdf !important; }
+
+.bg-color-white {
+  background-color: #fff !important; }
+
+.font-weight-300 {
+  font-weight: 300 !important; }
+
+.move-to-top {
+  animation: moveInTop .5s ease-in-out .75s;
+  animation-fill-mode: backwards; }
+
+.fade-Out {
+  animation: fadeOut 4s !important;
+  animation-fill-mode: both !important; }
+
+.color-switch {
+  animation: colorSwitch 1s !important;
+  animation-fill-mode: both !important;
+  transition: all .8s; }
+
+.btn {
+  font-size: 1.6rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  transition: all .4s;
+  backface-visibility: hidden;
+  transition: all .4s;
+  backface-visibility: hidden;
+  transition: all .4s;
+  backface-visibility: hidden; }
+  .btn:focus {
+    outline: none; }
+  .btn:hover > .icon-add-outline {
+    transform: scale(1.2); }
+  .btn:hover > .icon-loop {
+    animation: rotate .7s infinite linear; }
+  .btn:hover > .icon-hand {
+    animation: pulse .7s infinite linear; }
+  .btn:hover span {
+    border-bottom: 1px solid #652011;
+    perspective: 1px;
+    letter-spacing: 2px;
+    transition: all 1s;
+    -webkit-font-smoothing: antialiased; }
+  .btn-add-outline {
+    top: 2rem; }
+  .btn-loop {
+    bottom: 23%; }
+  .btn-hand {
+    bottom: 12%; }
+  .btn .icon {
+    height: 3.2rem;
+    width: 3.2rem;
+    font-weight: 200;
+    fill: #652011;
+    margin-right: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .btn .icon {
+        height: 2.5rem;
+        width: 2.5rem;
+        margin-right: 1.5rem; } }
+    .btn .icon-hand {
+      transform: rotate(15deg) translateX(1.2rem); }
+
+.dice {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.18);
+  height: 9rem; }
+  @media only screen and (max-width: 37.5em) {
+    .dice {
+      height: 5rem; } }
+  .dice-1 {
+    margin-top: -12rem; }
+    @media only screen and (max-width: 37.5em) {
+      .dice-1 {
+        margin-top: -8rem; } }
+  .dice-2 {
+    margin-top: -1.2rem; }
+
+.panel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  align-content: center; }
+  .panel__player {
+    text-align: center;
+    transition: all .4s; }
+    .panel__player img {
+      width: 3.2rem;
+      height: 3.2rem; }
+      @media only screen and (max-width: 37.5em) {
+        .panel__player img {
+          width: 2.5rem;
+          height: 2.5rem; } }
+    .panel__player-1 {
+      height: 90vh;
+      background-color: #dfdfdf;
+      border-radius: 1rem 0 0 1rem;
+      display: grid;
+      grid-auto-rows: 1fr 20% 1fr;
+      align-items: center; }
+    .panel__player-2 {
+      height: 90vh;
+      background-color: #fff;
+      border-radius: 0 1rem 1rem 0;
+      display: grid;
+      grid-auto-rows: 1fr 20% 1fr;
+      align-items: center; }
+  .panel .player-present-box {
+    background-color: #652011;
+    font-size: 1.1rem;
+    padding: .8rem 3rem;
+    border-radius: .5rem;
+    justify-self: center;
+    letter-spacing: 3px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
+    @media only screen and (max-width: 37.5em) {
+      .panel .player-present-box {
+        padding: .6rem 1.5rem; } }
+
+@media only screen and (max-width: 26em) {
+  body::before {
+    content: '\1F437  Rotate the phone   \21B7';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    color: #fff;
+    z-index: 999; } }
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 90vh;
+  position: relative;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
