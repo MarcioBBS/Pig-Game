@@ -14,6 +14,16 @@ body {
         font-size: 4.5rem;
         letter-spacing: .5rem;
 
+        @include respond(tab-small) {
+            font-size: 3.5rem;
+        }
+
+        @include respond(phone) {
+            align-self: end;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
+
         &-1 {
             animation: moveInLeft 1s ease-out;
         }
@@ -26,7 +36,11 @@ body {
 
     &-score {
         font-size: 8.5rem;
-        color: $color-secondary;       
+        color: $color-secondary;
+
+        @include respond(phone) {
+            font-size: 6.5rem;
+        }
     }
 
     &-present-box {
