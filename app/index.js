@@ -134,7 +134,7 @@ function init() {
     let playerName1;
     let playerName2;
     gamePlaying = true;
-    winnerScore = 50;
+    winnerScore = 100;
     scores = [0,0];
     roundScore = 0;
     activePlayer = 1;
